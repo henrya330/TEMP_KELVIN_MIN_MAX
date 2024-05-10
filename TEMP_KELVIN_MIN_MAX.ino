@@ -71,26 +71,34 @@ void DisplayMinMax(){
   lcd.clear();
   lcd.begin(16, 2);
   lcd.print("Temperature:");
+  lcd.setCursor(0,1);
+  lcd.print("Min");
+  lcd.setCursor(9,1);
+  lcd.print("Max");
 
-  lcd.setCursorAndPrint(0,1,"Min")
-  lcd.setCursorAndPrint(9,1,"Max");
-  lcd.setCursorAndPrint(13,0, " ");
-  lcd.setCursorAndPrint(13,0, itempF);
-  lcd.setCursorAndPrint(5,1, " ");
-  lcd.setCursorAndPrint(4,1, iMin);
-  lcd.setCursorAndPrint(13,1, "   ");
-  lcd.setCursorAndPrint(13,1, iMax);
+  lcd.setCursor(13, 0);
+  lcd.print ("   ");
+  lcd.setCursor(13, 0);
+  lcd.print(itempF);
+  lcd.setCursor(5, 1);
+  lcd.print ("   ");  
+  lcd.setCursor(4, 1);
+  lcd.print(iMin);
+  lcd.setCursor(13, 1);
+  lcd.print ("   ");
+  lcd.setCursor(13, 1);
+  lcd.print(iMax);
 }
 
 void DisplayResults(){
   lcd.clear();
-  lcd.setCursorAndPrint(0,0, String("F") + char(223) + String(itempF));
-  lcd.setCursorAndPrint(8,0, String("C") + char(223) + String(itempC));
-  lcd.setCursorAndPrint(0,1, String("Kelvin  ") + String(tempK));
-  lcd.setCursor(10, 1);
-}
+  lcd.setCursor(0, 0);
+  lcd.print(String("F") + char(223) + String(itempF));
 
-void setCursorAndPrint(int num1, int num2, string string){
-  lcd.setCursor(num1, num2);
-  lcd.print(string);
+  lcd.setCursor(8, 0);
+  lcd.print(String("C") + char(223) + String(itempC));
+
+  lcd.setCursor(0, 1);
+  lcd.print(String("Kelvin  ") + String(tempK)); 
+  lcd.setCursor(10, 1);
 }
