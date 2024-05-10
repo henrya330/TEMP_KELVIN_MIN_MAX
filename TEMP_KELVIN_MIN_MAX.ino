@@ -1,9 +1,8 @@
 
-//www.elegoo.com
-//2016.12.9
 #include <LiquidCrystal.h>
 //#include <OneWire.h>
 //#include <DallasTemperature.h>
+//#include <string.h>
 
 int itempC, itempF,tempReading,tempPin,iMin,iMax = 0;
 float tempC, tempF = 0;
@@ -67,7 +66,7 @@ void initialize()
   iMax = itempF;
 }
 
-void DisplayMinMax(){
+void DisplayMinMaxOld(){
   lcd.clear();
   lcd.begin(16, 2);
   lcd.print("Temperature:");
@@ -76,10 +75,18 @@ void DisplayMinMax(){
   lcd.setCursor(9,1);
   lcd.print("Max");
 
+
+
   lcd.setCursor(13, 0);
   lcd.print ("   ");
+  
+  //DisplayPrint(13,0,String(itempF));
+
+
   lcd.setCursor(13, 0);
   lcd.print(itempF);
+
+
   lcd.setCursor(5, 1);
   lcd.print ("   ");  
   lcd.setCursor(4, 1);
@@ -87,7 +94,39 @@ void DisplayMinMax(){
   lcd.setCursor(13, 1);
   lcd.print ("   ");
   lcd.setCursor(13, 1);
-  lcd.print(iMax);
+  lcd.print(String(iMax));
+}
+
+void DisplayMinMax() {
+  lcd.clear();
+  lcd.begin(16, 2);
+  lcd.print("Temperature:");
+
+  const String values[3] = {
+    String(itempF),
+    String(iMin),
+    String(iMax)
+  };
+
+  const int positions[3][2] = {
+    {13, 0},
+    {4, 1},
+    {13, 1}
+  };
+
+  for (int i = 0; i < 3; i++) {
+    DisplayPrint(values[i], positions[i][0], positions[i][1]);
+  }
+
+  lcd.setCursor(0, 1);
+  lcd.print("Min");
+  lcd.setCursor(9, 1);
+  lcd.print("Max");
+} 
+
+void DisplayPrint(String string, int x, int y ){
+  lcd.setCursor(x, y);
+  lcd.print(string);
 }
 
 void DisplayResults(){
