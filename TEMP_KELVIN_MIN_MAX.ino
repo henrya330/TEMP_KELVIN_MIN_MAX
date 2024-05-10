@@ -47,6 +47,9 @@ void TruncateValues(){
 
 void setMinMaxValues()
 {
+
+  int iNew = 0;
+
   if (iMin >= itempF)
   {
     iMin = itempF;
