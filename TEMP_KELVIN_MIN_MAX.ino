@@ -18,17 +18,14 @@ void setup()
 }
 void loop()
 {
+  int delayTimer = 4000;
   GetTemperaturesValues();
   TruncateValues();
   setMinMaxValues();
   DisplayMinMax();
-  ScreenDelay();
+  delay(delayTimer);
   DisplayResults();
-  ScreenDelay();
-}
-
-void ScreenDelay(){
-  delay(4000); 
+  delay(delayTimer);
 }
 
 void GetTemperaturesValues(){
