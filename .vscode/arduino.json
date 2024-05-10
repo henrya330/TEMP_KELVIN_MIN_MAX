@@ -1,0 +1,8 @@
+{
+    "board": "arduino:avr:mega",
+    "sketch": "TEMP_KELVIN_MIN_MAX.ino",
+    "configuration": "cpu=atmega2560",
+    "programmer": "avrispmkii",
+    "port": "COM3",
+    "output": "../ArduinoOutput"
+}
