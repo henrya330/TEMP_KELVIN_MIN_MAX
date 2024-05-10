@@ -44,16 +44,18 @@ void TruncateValues(){
 
 void setMinMaxValues()
 {
+  iMin = (iMin >= itempF)? itempF:iMin;
 
-  if (iMin >= itempF)
-  {
-    iMin = itempF;
-  }
+  // if (iMin >= itempF)
+  // {
+  //   iMin = itempF;
+  // }
 
   if (iMax <= itempF)
   {
     iMax = itempF;
-  }  
+  } 
+   
 }
 
 void initialize()
